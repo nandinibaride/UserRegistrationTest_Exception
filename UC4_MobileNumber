@@ -1,0 +1,27 @@
+package regex.com;
+
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class UC4_MobileNumber 
+{
+	public static boolean checkValidMobileNumber(String MobileNumber ) throws vaildateUserException 
+	 {	
+		String regex = "^[0-9]{2}\s{1}[0-9]{10}$";
+	    boolean isvalid = Pattern.matches(regex, MobileNumber);
+		 if (!isvalid)
+		 {
+		  throw new vaildateUserException("Invalid MobileNumber");
+		 }
+		  return isvalid;
+    }
+
+	 public static void main(String[] args) throws vaildateUserException
+	  {	
+		  Scanner sc= new Scanner(System.in); 
+		  System.out.println("Enter MobileNumber:");
+		  String mobileNumber= sc.nextLine();
+		  checkValidMobileNumber(mobileNumber);
+     }            
+}
