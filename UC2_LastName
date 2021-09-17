@@ -1,0 +1,27 @@
+package regex.com;
+
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class UC2_LastName 
+{
+   public static boolean checkValidLastName(String lastName) throws vaildateUserException 
+   {	
+	    String regex = "^[A-Z]{1}[a-z]{3,}$";
+		boolean isvalid = Pattern.matches(regex, lastName);
+	    if (!isvalid)
+	    {
+	       throw new vaildateUserException("Invalid last name.");
+	    }
+	        return isvalid;
+   }
+
+	public static void main(String[] args) throws vaildateUserException
+		 {	
+		    Scanner sc= new Scanner(System.in); 
+		    System.out.println("Enter the last name:");
+		    String lastName= sc.nextLine();
+		    checkValidLastName(lastName);
+		  }            
+}
