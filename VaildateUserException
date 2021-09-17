@@ -1,0 +1,11 @@
+package regex.com;
+
+public class vaildateUserException extends Exception
+{
+	
+	public vaildateUserException(String s)
+	{
+	  super(s);
+
+   }
+} 
