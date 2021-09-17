@@ -1,0 +1,122 @@
+package regex.com;
+
+import org.junit.Assert;
+import org.junit.Test;
+
+/**
+ * @Purpose:Performing test cases for first name, last name, Email, phoneNumber & Password.
+ * @author: Nandini.B
+ */
+public class UserTestingException
+{
+	// Test for First Name
+	@Test
+	public void givenFirstName_whenFirstLetterCapital_ReturnTrue() throws vaildateUserException
+	{
+	  boolean result = UC1_FirstName.checkValidFirstName("Nandini");
+	  Assert.assertEquals(true, result);
+	}
+	
+	@Test(expected = vaildateUserException.class )
+	public void givenFirstName_whenfirstLetterSmall_ReturnsFalse() throws vaildateUserException
+	{
+		boolean result = UC1_FirstName.checkValidFirstName("nandini");
+		Assert.assertEquals(false, result);
+	}
+	
+	@Test(expected = vaildateUserException.class )
+	public void givenFirstName_Whenincludenumber_ReturnsFalse()  throws vaildateUserException
+	{
+		boolean result = UC1_FirstName.checkValidFirstName("nandini10");
+		Assert.assertEquals(false, result);
+	}
+	
+	// Test for Last Name
+	@Test
+	public void givenLastName_WhenFirstLetterCapital_ReturnsTrue() throws vaildateUserException
+	{
+		boolean result = UC2_LastName.checkValidLastName("Baride");
+		Assert.assertEquals(true, result);
+	}
+	
+	@Test(expected = vaildateUserException.class )
+	public void givenLastName_whenFirstLetterSmall_ReturnsFalse() throws vaildateUserException
+	{
+		boolean result = UC2_LastName.checkValidLastName("baride");
+		Assert.assertEquals(false, result);
+	}
+	
+	@Test(expected = vaildateUserException.class )
+	public void givenlastName_Whenincludcharacter_ReturnsFalse() throws vaildateUserException
+	{
+		boolean result = UC2_LastName.checkValidLastName("baride@");
+		Assert.assertEquals(false, result);
+	}
+	
+	// Test for Email
+	@Test(expected = vaildateUserException.class )
+	public void email_WhenFirstLetterCapital_ReturnsFalse() throws vaildateUserException
+	{
+		boolean result = UC3_Email.checkValidEmail("Nandinibaride1234@gmail.com");
+		Assert.assertEquals(false, result);
+	}
+	
+	@Test
+	public void email_WhenFirstLettersmall_ReturnsTrue() throws vaildateUserException
+	{
+		boolean result = UC3_Email.checkValidEmail("nandinibaride1234@gmail.com");
+		Assert.assertEquals(true, result);
+	}
+	
+	@Test(expected = vaildateUserException.class )
+	public void email_WhenDotAndChracterIsNotPresent_ReturnsFalse() throws vaildateUserException
+	{
+		boolean result = UC3_Email.checkValidEmail("nandinibaride1234gmailcom");
+		Assert.assertEquals(false, result);
+	}
+	
+	//Test for mobile number
+	@Test(expected = vaildateUserException.class )
+	public void _WhenIncludeChracter_ReturnsFalse() throws vaildateUserException
+	{
+		boolean result = UC4_MobileNumber. checkValidMobileNumber("996@5742578");
+		Assert.assertEquals(false, result);
+	}
+	
+	@Test
+	public void _WhenCountriCodeIsPresent_ReturnsTrue() throws vaildateUserException
+	{
+		boolean result = UC4_MobileNumber.checkValidMobileNumber("91 9965742578");
+		Assert.assertEquals(true, result);
+	}
+	
+	// Test for Password
+	@Test
+	public void _WhenMinimumEightAlphabet_ReturnsTrue() throws vaildateUserException
+	{
+		boolean result = UC5_Passward.checkValidPassward("passward");
+		Assert.assertEquals(true, result);
+	}
+	
+	@Test
+	public void _WhenFirstLetterCapital_ReturnsTrue() throws vaildateUserException
+	{
+		boolean result = UC6_Passward.checkValidPassward("Passwardn");
+		Assert.assertEquals(true, result);
+	}
+	
+	@Test
+	public void _WhenAddOneNumbericValue_ReturnsTrue() throws vaildateUserException
+	{
+		boolean result = UC7_Passward.checkValidPassward("Passwardn1");
+		Assert.assertEquals(true, result);
+	}
+	
+	@Test
+	public void _WhenAddOneSpecialCharacter_ReturnsTrue() throws vaildateUserException
+	{
+		boolean result = UC8_Passward.checkValidPassward("Passward@12");
+		Assert.assertEquals(true, result);
+	}
+	
+}
