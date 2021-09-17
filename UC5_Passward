@@ -1,0 +1,27 @@
+package regex.com;
+
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class UC5_Passward 
+{
+	public static boolean checkValidPassward(String Passward) throws vaildateUserException 
+	 {	
+		String regex = "^[a-z]{8,}$";
+        boolean isvalid = Pattern.matches(regex, Passward);
+		if (!isvalid)
+		{
+		  throw new vaildateUserException("Invalid Passward");
+		}
+		  return isvalid;
+	  }
+
+	 public static void main(String[] args) throws vaildateUserException
+	  {	
+		  Scanner sc= new Scanner(System.in); 
+		  System.out.println("Enter Passward:");
+		  String passward= sc.nextLine();
+		  checkValidPassward(passward);
+      }            
+}
