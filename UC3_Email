@@ -1,0 +1,30 @@
+package regex.com;
+
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class UC3_Email
+{
+    public static boolean checkValidEmail(String Email) throws vaildateUserException 
+	 {	
+		String regex = "^[a-z0-9+_.-]+@[a-z0-9.-]+$";
+	    boolean isvalid = Pattern.matches(regex, Email);
+		if (!isvalid)
+		{
+		  throw new vaildateUserException("Invalid email.");
+		}
+		  return isvalid;
+	}
+
+	 public static void main(String[] args) throws vaildateUserException
+	  {	
+		  Scanner sc= new Scanner(System.in); 
+		  System.out.println("Enter Email:");
+		  String email= sc.nextLine();
+		  checkValidEmail(email);
+      }            
+}
+
+
+
