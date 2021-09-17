@@ -1,0 +1,27 @@
+package regex.com;
+
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class UC1_FirstName 
+{
+   public static boolean checkValidFirstName(String firstName) throws vaildateUserException 
+   {	
+	   String regex = "^[A-Z]{1}[a-z]{3,}$";
+	   boolean isvalid = Pattern.matches(regex, firstName);
+       if (!isvalid)
+       {
+          throw new vaildateUserException("Invalid first name.");
+       }
+          return isvalid;
+   }
+
+    public static void main(String[] args) throws vaildateUserException
+	  {	
+	         Scanner sc= new Scanner(System.in); 
+	         System.out.println("Enter the first name:");
+	         String firstName= sc.nextLine();
+	         checkValidFirstName(firstName);
+	   }            
+}
